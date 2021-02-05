@@ -18,5 +18,5 @@ RUN mkdir -p /opt/openshift/plugins && \
 #		  sed -i "s|<numExecutors>.*</numExecutors>|<numExecutors>0</numExecutors>|" "/opt/openshift/configuration/config.xml" && \
 #		  sed -i "/<slaves\/>/r /opt/openshift/config-cloud.xml" "/opt/openshift/configuration/config.xml" && \
                   cat /opt/openshift/config-cloud.xml > /opt/openshift/configuration/config.xml 
-		  chmod -R og+rw /opt/openshift/plugins && \
+#		  chmod -R og+rw /opt/openshift/plugins && \
 		  rm -rf /opt/openshift/config-cloud.xml /opt/openshift/credentials.xml
