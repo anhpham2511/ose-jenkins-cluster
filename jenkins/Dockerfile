@@ -1,13 +1,13 @@
-FROM registry.redhat.io/openshift4/ose-jenkins:latest
+FROM registry.access.redhat.com/openshift3/jenkins-1-rhel7:latest
 
 ADD config-cloud.xml credentials.xml /opt/openshift/
 
 USER root
 # Install additional plugins and modify files
 RUN mkdir -p /opt/openshift/plugins && \
-	chmod -R 777 /var/lib/jenkins && \
-		mkdir -p /opt/openshift/configuration && \
-		touch /opt/openshift/configuration/config.xml && \
+#	chmod -R 777 /var/lib/jenkins && \
+#		mkdir -p /opt/openshift/configuration && \
+#		touch /opt/openshift/configuration/config.xml && \
           cat /opt/openshift/credentials.xml > /opt/openshift/configuration/credentials.xml && \
           curl -sSL -f https://updates.jenkins-ci.org/download/plugins/swarm/2.0/swarm.hpi -o /opt/openshift/plugins/swarm.jpi && \
 		  curl -sSL -f https://updates.jenkins-ci.org/download/plugins/durable-task/1.7/durable-task.hpi -o /opt/openshift/plugins/durable-task.jpi && \
