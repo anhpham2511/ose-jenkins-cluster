@@ -5,7 +5,7 @@ ADD config-cloud.xml credentials.xml /opt/openshift/
 USER root
 # Install additional plugins and modify files
 RUN mkdir -p /opt/openshift/plugins && \
-	chmod -R 777 /var/lib/jenkins && \
+#	chmod -R 777 /var/lib/jenkins && \
 		mkdir -p /opt/openshift/configuration && \
 		touch /opt/openshift/configuration/config.xml && \
           cat /opt/openshift/credentials.xml > /opt/openshift/configuration/credentials.xml && \
